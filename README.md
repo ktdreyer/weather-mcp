@@ -1,0 +1,1 @@
+This is a demo weather MCP server that I wrote as a part of a [linkedin course](https://www.linkedin.com/learning/model-context-protocol-mcp-hands-on-with-agentic-ai/articles/creating-an-mcp-server-using-python).

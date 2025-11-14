@@ -1,0 +1,9 @@
+[project]
+name = "weather-mcp"
+version = "0.1.0"
+description = "Demo Weather MCP server"
+readme = "README.md"
+dependencies = [
+    "httpx",
+    "mcp[cli]",
+]
