@@ -66,4 +66,7 @@ async def search_location(name: str, count: int = 10) -> dict:
 
 if __name__ == "__main__":
     # Initialize and run the server
-    mcp.run(transport='stdio')
+    # For use with MCP clients inline:
+    # mcp.run(transport='stdio')
+    # For use with MCP clients "remotely", over http:
+    mcp.run(transport='streamable-http')
