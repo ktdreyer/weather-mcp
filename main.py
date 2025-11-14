@@ -6,6 +6,7 @@ from mcp.server.fastmcp import FastMCP
 mcp = FastMCP("weather")
 
 OPENMETEO_API_BASE = "https://api.open-meteo.com/v1"
+GEOCODING_API_BASE = "https://geocoding-api.open-meteo.com/v1"
 USER_AGENT = "ktdreyer-weather-app/1.0"
 
 
@@ -40,6 +41,25 @@ async def get_current_weather(latitude: float, longitude: float) -> dict:
 
     if not data:
         return "Unable to fetch current weather data for this location."
+
+    return data
+
+
+@mcp.tool()
+async def search_location(name: str, count: int = 10) -> dict:
+    """Search for a location by name to get coordinates.
+
+    Args:
+        name: Name of the city or location to search for
+        count: Maximum number of results to return (default: 10)
+    """
+
+    url = f"{GEOCODING_API_BASE}/search?name={name}&count={count}&language=en&format=json"
+
+    data = await make_openmeteo_request(url)
+
+    if not data:
+        return "Unable to fetch location data."
 
     return data
 
